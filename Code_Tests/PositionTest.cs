@@ -4,7 +4,7 @@ using System;
 
 namespace GameFifteen.Test
 {
-    
+    //TODO: must replace pattern with real unit tests!!!!
     
     /// <summary>
     ///This is a test class for PositionTest and is intended
