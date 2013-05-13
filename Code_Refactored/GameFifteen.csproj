@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameFifteen.cs" />
+    <Compile Include="Matrix.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="TopScores.cs" />
   </ItemGroup>
