@@ -1,14 +1,17 @@
-﻿using System;
-
-namespace GameFifteen
+﻿namespace GameFifteen
 {
+    using System;
+
+    /// <summary>
+    /// A class representing position on board.
+    /// </summary>
     public class Position
     {
         private int row;
         private int column;
 
         /// <summary>
-        /// Initializes an instance of <see cref="Position"/> class.
+        /// Initializes a new instance of the <see cref="Position"/> class.
         /// </summary>
         /// <param name="row">Row number.</param>
         /// <param name="column">Column number.</param>
@@ -28,9 +31,10 @@ namespace GameFifteen
             {
                 return this.column;
             }
+
             set
             {
-                if (value < 0 )
+                if (value < 0)
                 {
                     throw new ArgumentOutOfRangeException("It is not allowed column to be negative number!");
                 }
@@ -49,6 +53,7 @@ namespace GameFifteen
             {
                 return this.row;
             }
+
             set
             {
                 if (value < 0)
