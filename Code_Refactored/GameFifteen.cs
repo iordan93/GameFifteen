@@ -70,7 +70,7 @@
 
         // TODO: Place a comment about this method with reference!
         // http://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
-        private static bool IsSolvable(string[,] gameField)
+        internal static bool IsSolvable(string[,] gameField)
         {
             int[] numbersInOneRow = new int[gameField.Length];
             int index = 0;
@@ -104,7 +104,7 @@
                 {
                     for (int n = i + 1; n < numbersInOneRow.Length; n++)
                     {
-                        if (numbersInOneRow[n] < number)
+                        if (numbersInOneRow[n] < number && numbersInOneRow[n] != 0)
                         {
                             numberOfInversions++;
                         }
@@ -391,6 +391,7 @@
             }
 
             // TODO: A new game doesn't start automatically!
+
         }
     }
 }
