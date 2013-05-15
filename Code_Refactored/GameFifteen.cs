@@ -268,7 +268,7 @@
                     // TODO: Draw if records are presented. Extract method. In class.
                     for (int i = 0; i < 5; i++)
                     {
-                        Console.WriteLine("Name : {0} , moves : {1} ", TopScores.igrachi[i], TopScores.hodove[i]);
+                        Console.WriteLine("Name : {0} , moves : {1} ", Highscores.igrachi[i], Highscores.hodove[i]);
                     }
                     continue;
 
@@ -379,14 +379,14 @@
             // TODO: Extract method. In class. Fix bug! (moves = 0)
             for (int i = 0; i < 5; i++)
             {
-                if (TopScores.hodove[i] > moves)
+                if (Highscores.hodove[i] > moves)
                 {
                     Console.WriteLine("Congratulations, you have just putted a new record");
                     Console.Write("Please enter your name : ");
 
-                    TopScores.hodove[i] = moves;
+                    Highscores.hodove[i] = moves;
 
-                    TopScores.igrachi[i] = Console.ReadLine();
+                    Highscores.igrachi[i] = Console.ReadLine();
                 }
             }
 
