@@ -8,12 +8,12 @@
     public class GameFifteen
     {
         // Like Settings...
-        private const int GAME_FIELD_ROWS = 4;
-        private const int GAME_FIELD_COLUMNS = 4;
+        private const int GameFieldRows = 4;
+        private const int GameFieldColumns = 4;
 
         public static string[,] GenerateGameField()
         {
-            string[,] gameField = new string[GAME_FIELD_ROWS, GAME_FIELD_COLUMNS];
+            string[,] gameField = new string[GameFieldRows, GameFieldColumns];
 
             do
             {
@@ -37,7 +37,7 @@
             List<int> usedNumbers = new List<int>();
             bool isPositionFilled = false;
 
-            gameField[rand.Next(GAME_FIELD_ROWS), rand.Next(GAME_FIELD_COLUMNS)] = " ";
+            gameField[rand.Next(GameFieldRows), rand.Next(GameFieldColumns)] = " ";
 
             for (int i = 0; i < gameField.GetLength(0); i++)
             {
@@ -237,7 +237,7 @@
                 "game and 'exit' \nto quit the game.\n\n\n");
 
             Drawmatrica(gameField);
-
+            #region YD
             while (!proverka(gameField))
             {
                 Console.Write("Enter a number to move : ");
@@ -366,15 +366,14 @@
 
                 }
 
-                if (!
-                    празно)
+                if (!празно)
                 {
 
                     Console.WriteLine("Cheat ! Illegal command ! !");
                 }
 
             }
-
+            #endregion
 
             Console.WriteLine("Your result is {0} moves !", moves);
             // TODO: Extract method. In class. Fix bug! (moves = 0)
