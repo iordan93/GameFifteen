@@ -19,7 +19,6 @@ namespace GameFifteen.Test
                                             { "5", "6", "7", "8" },
                                             { "9", "10", "11", "12" },
                                             { "13", "15", "14", " " }}; ;
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsFalse(actual);
         }
@@ -36,7 +35,6 @@ namespace GameFifteen.Test
                                             { "5", "7", "4", "8" },
                                             { "1", "12", "14", "9" },
                                             { "3", "15", "2", " " } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsFalse(actual);
         }
@@ -53,7 +51,6 @@ namespace GameFifteen.Test
                                           { "5", "6", "7", "8" },
                                           { "9", "10", "11", "12" },
                                           { "13", "14", " ", "15" } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -70,7 +67,6 @@ namespace GameFifteen.Test
                                           { "15", "11", "10", "14" },
                                           { "3", "7", "2", "5" },
                                           { "4", "8", "6", "1" } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -87,7 +83,6 @@ namespace GameFifteen.Test
                                           { "15", "11", "14", "9" },
                                           { "3", "7", "6", "2" },
                                           { "4", "8", "5", "1" } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -104,7 +99,6 @@ namespace GameFifteen.Test
                                   { "15", "11", "10", "14" },
                                   { "7", "8", "6", "2" },
                                   { "4", "3", "5", "1" } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -121,7 +115,6 @@ namespace GameFifteen.Test
                                           { "15", "11", "14", "9" },
                                           { "3", "7", "2", "5" },
                                           { "4", "8", "6", "1" } };
-            bool expected = false;
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -135,134 +128,204 @@ namespace GameFifteen.Test
             int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
             string[,] gameField = { { " ", "12", "11", "13" },
-                                          { "15", "14", "10", "9" },
-                                          { "3", "7", "6", "2" },
-                                          { "4", "8", "5", "1" } };
-            bool expected = false;
+                                  { "15", "14", "10", "9" },
+                                  { "3", "7", "6", "2" },
+                                  { "4", "8", "5", "1" } };
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
 
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField6()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "10", "13" },
-        //                                  { "15", "11", "14", "9" },
-        //                                  { "7", "8", "6", "2" },
-        //                                  { "4", "3", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 6 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField6Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField =  { { " ", "12", "10", "13" },
+                                   { "15", "11", "14", "9" },
+                                   { "7", "8", "6", "2" },
+                                   { "4", "3", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField7()
-        //{
-        //    string[,] solvableGameField = { { " ", "11", "9", "13" },
-        //                                  { "12", "15", "10", "14" },
-        //                                  { "3", "7", "6", "2" },
-        //                                  { "4", "8", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 7 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField7Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "11", "9", "13" },
+                                  { "12", "15", "10", "14" },
+                                  { "3", "7", "6", "2" },
+                                  { "4", "8", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField8()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "10", "13" },
-        //                                  { "15", "11", "9", "14" },
-        //                                  { "7", "3", "6", "2" },
-        //                                  { "4", "8", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 8 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField8Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "12", "10", "13" },
+                                  { "15", "11", "9", "14" },
+                                  { "7", "3", "6", "2" },
+                                  { "4", "8", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField9()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "8", "10", "14" },
-        //                                  { "11", "7", "6", "2" },
-        //                                  { "4", "3", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 9 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField9Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "12", "9", "13" },
+                                  { "15", "8", "10", "14" },
+                                  { "11", "7", "6", "2" },
+                                  { "4", "3", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField10()
-        //{
-        //    string[,] solvableGameField = { { " ", "15", "9", "13" },
-        //                                  { "11", "12", "10", "14" },
-        //                                  { "3", "7", "6", "2" },
-        //                                  { "4", "8", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 10 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField10Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField =  { { " ", "15", "9", "13" },
+                                   { "11", "12", "10", "14" },
+                                   { "3", "7", "6", "2" },
+                                   { "4", "8", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField11()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "11", "14", "10" },
-        //                                  { "3", "8", "6", "2" },
-        //                                  { "4", "7", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 11 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField11Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField =  { { " ", "12", "9", "13" },
+                                   { "15", "11", "14", "10" },
+                                   { "3", "8", "6", "2" },
+                                   { "4", "7", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField12()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "11", "10", "14" },
-        //                                  { "3", "7", "5", "6" },
-        //                                  { "4", "8", "2", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 12 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField12Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "12", "9", "13" },
+                                  { "15", "11", "10", "14" },
+                                  { "3", "7", "5", "6" },
+                                  { "4", "8", "2", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField13()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "11", "10", "14" },
-        //                                  { "3", "7", "6", "2" },
-        //                                  { "4", "8", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 13 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField13Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "12", "9", "13" },
+                                  { "15", "11", "10", "14" },
+                                  { "3", "7", "6", "2" },
+                                  { "4", "8", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField14()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "11", "10", "14" },
-        //                                  { "8", "3", "6", "2" },
-        //                                  { "4", "7", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 14 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField14Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField = { { " ", "12", "9", "13" },
+                                  { "15", "11", "10", "14" },
+                                  { "8", "3", "6", "2" },
+                                  { "4", "7", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField15()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "9", "13" },
-        //                                  { "15", "11", "10", "14" },
-        //                                  { "7", "8", "5", "6" },
-        //                                  { "4", "3", "2", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 15 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField15Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField ={ { " ", "12", "9", "13" },
+                                 { "15", "11", "10", "14" },
+                                 { "7", "8", "5", "6" },
+                                 { "4", "3", "2", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField16()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "14", "13" },
-        //                                  { "15", "11", "9", "10" },
-        //                                  { "3", "7", "6", "2" },
-        //                                  { "4", "8", "5", "1" } };
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 16 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField16Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField ={ { " ", "12", "14", "13" },
+                                 { "15", "11", "9", "10" },
+                                 { "3", "7", "6", "2" },
+                                 { "4", "8", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
-        //[TestMethod]
-        //public void IsSolvable_WithSolvableField17()
-        //{
-        //    string[,] solvableGameField = { { " ", "12", "14", "13" },
-        //                                  { "15", "11", "9", "10" },
-        //                                  { "8", "3", "6", "2" },
-        //                                  { "4", "7", "5", "1" } };
-
-        //    Assert.IsTrue(GameFifteen.IsSolvable(solvableGameField));
-        //}
+        /// <summary>
+        ///A test for IsSolvable - WithSolvableField 17 test 
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvableWithSolvableField17Test()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] gameField ={ { " ", "12", "14", "13" },
+                                 { "15", "11", "9", "10" },
+                                 { "8", "3", "6", "2" },
+                                 { "4", "7", "5", "1" } };
+            bool actual = target.IsSolvable(gameField);
+            Assert.IsTrue(actual);
+        }
 
         /// <summary>
         ///A test for GameBoard Constructor
@@ -270,21 +333,9 @@ namespace GameFifteen.Test
         [TestMethod()]
         public void GameBoardConstructorTest()
         {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
+            int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
-
-        /// <summary>
-        ///A test for GenerateField
-        ///</summary>
-        [TestMethod()]
-        public void GenerateFieldTest()
-        {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
-            GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
-            target.GenerateField();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            Assert.AreEqual(4, target.Board.GetLength(0));
         }
 
         /// <summary>
@@ -323,14 +374,13 @@ namespace GameFifteen.Test
         [TestMethod()]
         public void BoardTest()
         {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
-            GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
-            string[,] expected = null; // TODO: Initialize to an appropriate value
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            string[,] expected = null; 
             string[,] actual;
             target.Board = expected;
             actual = target.Board;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
@@ -347,22 +397,6 @@ namespace GameFifteen.Test
             string actual;
             target[indexRow, indexColumn] = expected;
             actual = target[indexRow, indexColumn];
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        /// <summary>
-        ///A test for IsSolvable
-        ///</summary>
-        [TestMethod()]
-        public void IsSolvableTest()
-        {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
-            GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
-            string[,] gameField = null; // TODO: Initialize to an appropriate value
-            bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsSolvable(gameField);
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
         }
