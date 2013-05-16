@@ -68,11 +68,11 @@
         {
             get
             {
-                return this.GameBoardSize;
+                return this.gameBoardSize;
             }
             private set
             {
-                this.GameBoardSize = value;
+                this.gameBoardSize = value;
             }
         }
 
