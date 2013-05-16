@@ -339,16 +339,36 @@ namespace GameFifteen.Test
         }
 
         /// <summary>
+        ///A test for IsSolved - solved board
+        ///</summary>
+        [TestMethod()]
+        public void IsSolvedSolvedBoardTest()
+        {
+            int gameBoardSize = 4; 
+            GameBoard target = new GameBoard(gameBoardSize); 
+            bool expected = true; 
+            string[,] gameField ={ { "1", "2", "3", "4" },
+                                 { "5", "6", "7", "8" },
+                                 { "9", "10", "11", "12" },
+                                 { "13", "14", "15", " " } };
+            bool actual = target.IsSolved();
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
         ///A test for IsSolved
         ///</summary>
         [TestMethod()]
-        public void IsSolvedTest()
+        public void IsSolvedEmptyBoardTest()
         {
             int gameBoardSize = 4; // TODO: Initialize to an appropriate value
             GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
-            bool actual;
-            actual = target.IsSolved();
+            string[,] gameField ={ { "1", "22", "14", "13" },
+                                 { "15", "11", "9", "10" },
+                                 { "8", "3", "6", "2" },
+                                 { "4", "7", "5", "1" } };
+            bool actual = target.IsSolved();
             Assert.AreEqual(expected, actual);
         }
 
