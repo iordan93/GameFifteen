@@ -344,13 +344,12 @@ namespace GameFifteen.Test
         [TestMethod()]
         public void IsSolvedTest()
         {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
+            int gameBoardSize = 4; // TODO: Initialize to an appropriate value
             GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
             bool expected = false; // TODO: Initialize to an appropriate value
             bool actual;
             actual = target.IsSolved();
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
@@ -372,33 +371,118 @@ namespace GameFifteen.Test
         ///A test for Board
         ///</summary>
         [TestMethod()]
+        [ExpectedException(typeof(ArgumentException))]
         public void BoardTest()
         {
             int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
-            string[,] expected = null; 
-            string[,] actual;
-            target.Board = expected;
-            actual = target.Board;
+            target.Board = null;
+        }
+
+        /// <summary>
+        ///A test for Item - Write to negative row -> Exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemWriteNegativeRowTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = -5;
+            int indexColumn = 0;
+            string noneValue = string.Empty;
+            target[indexRow, indexColumn] = noneValue;
+        }
+
+        /// <summary>
+        ///A test for Item - Write to negative column -> Exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemWriteNegativeColumnTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 0;
+            int indexColumn = -9;
+            string noneValue = string.Empty;
+            target[indexRow, indexColumn] = noneValue;
+        }
+
+        /// <summary>
+        ///A test for Item - Write to column bigger than size of board -> Exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemWriteBiggerThanSizeOfBoardColumnTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 3;
+            int indexColumn = 30;
+            string noneValue = string.Empty;
+            target[indexRow, indexColumn] = noneValue;
+        }
+
+        /// <summary>
+        ///A test for Item - Write to row bigger than size of board -> Exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemWrieBiggerThanSizeOfBoardRowTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 10;
+            int indexColumn = 0;
+            string noneValue = string.Empty;
+            target[indexRow, indexColumn] = noneValue;
+        }
+
+        /// <summary>
+        ///A test for Item - Read / Write / Compare
+        ///</summary>
+        [TestMethod()]
+        public void ItemReadWriteTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 2;
+            int indexColumn = 2;
+            string expected = "4";
+            target[indexRow, indexColumn] = expected;
+            string actual = target[indexRow, indexColumn];
             Assert.AreEqual(expected, actual);
         }
 
         /// <summary>
-        ///A test for Item
+        ///A test for Item - Read from column bigger than size of board -> Exception
         ///</summary>
         [TestMethod()]
-        public void ItemTest()
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemReadBiggerThanSizeOfBoardColumnTest()
         {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
-            GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
-            int indexRow = 0; // TODO: Initialize to an appropriate value
-            int indexColumn = 0; // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            target[indexRow, indexColumn] = expected;
-            actual = target[indexRow, indexColumn];
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 2;
+            int indexColumn = 33;
+            string value = target[indexRow, indexColumn];
+
+        }
+
+        /// <summary>
+        ///A test for Item - Read from row bigger than size of board -> Exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ItemReadBiggerThanSizeOfBoardRowTest()
+        {
+            int gameBoardSize = 4;
+            GameBoard target = new GameBoard(gameBoardSize);
+            int indexRow = 23;
+            int indexColumn = 3;
+            string value = target[indexRow, indexColumn];
+
         }
     }
 }

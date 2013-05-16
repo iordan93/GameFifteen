@@ -31,6 +31,10 @@
             }
             set
             {
+                if (value == null)
+                {
+                    throw new ArgumentException("Game board can not be assigned to null!.");
+                }
                 this.board = value;
             }
         }
@@ -39,11 +43,19 @@
         {
             get
             {
+                if (indexRow < 0 || indexRow > this.gameBoardSize || indexColumn < 0 || indexColumn > this.gameBoardSize)
+                {
+                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board-1.");
+                }
                 return this.Board[indexRow, indexColumn];
             }
 
             set
             {
+                if (indexRow < 0 || indexRow > this.gameBoardSize || indexColumn < 0 || indexColumn > this.gameBoardSize)
+                {
+                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board-1.");
+                }
                 this.Board[indexRow, indexColumn] = value;
             }
         }
@@ -66,8 +78,6 @@
 
         public void GenerateField()
         {
-            // string[,] gameField = new string[GameFieldRows, GameFieldColumns];
-
             do
             {
                 Position blankPosition = this.FindEmptyCell();
