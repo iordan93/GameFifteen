@@ -7,10 +7,9 @@
 
    public class Highscores
    {
-       //this is the top score table
 
        /// <summary>
-       /// 
+       /// This is the top score table
        /// </summary>
       public static int[] moves = new int[5];
       public static string[] players = new string[5];

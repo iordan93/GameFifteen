@@ -6,23 +6,23 @@
 
     public class GameBoard
     {
-        private int gameBoardSize;
+        private int gameBoardSize = 4;
 
         private string[,] board;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Board" /> class.
+        /// Initializes a new instance of the <see cref="GameBoard" /> class.
         /// </summary>
         public GameBoard(int gameBoardSize)
         {
             this.GameBoardSize = gameBoardSize;
-            this.Board = new string[this.GameBoardSize, this.gameBoardSize];
+            this.Board = new string[this.GameBoardSize, this.GameBoardSize];
         }
 
         /// <summary>
-        /// Gets or sets the game board1.
+        /// Gets or sets the game board.
         /// </summary>
-        /// <value>The game board1.</value>
+        /// <value>The game board.</value>
         public string[,] Board
         {
             get
@@ -56,11 +56,11 @@
         {
             get
             {
-                return this.gameBoardSize;
+                return this.GameBoardSize;
             }
             private set
             {
-                this.gameBoardSize = value;
+                this.GameBoardSize = value;
             }
         }
 
@@ -172,7 +172,7 @@
                             }
                         }
                     }
-                    while (isPositionFilled == false);
+                    while (!isPositionFilled);
                 }
             }
         }

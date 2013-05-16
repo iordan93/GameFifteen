@@ -13,8 +13,8 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="Position"/> class.
         /// </summary>
-        /// <param name="row">Row number.</param>
-        /// <param name="column">Column number.</param>
+        /// <param name="row">Zero-based row number.</param>
+        /// <param name="column">Zero-based column number.</param>
         public Position(int row, int column)
         {
             this.Row = row;
