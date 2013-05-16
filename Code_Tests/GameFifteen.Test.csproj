@@ -73,6 +73,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="GameBoardTest.cs" />
     <Compile Include="PositionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

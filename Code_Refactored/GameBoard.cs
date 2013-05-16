@@ -86,7 +86,7 @@
         // TODO: Place a comment about this method with reference!
         // http://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
 
-        internal bool IsSolvable(string[,] gameField)
+        public bool IsSolvable(string[,] gameField)
         {
             int[] numbersInOneRow = new int[gameField.Length];
             int index = 0;
