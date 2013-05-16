@@ -351,6 +351,7 @@ namespace GameFifteen.Test
                                  { "5", "6", "7", "8" },
                                  { "9", "10", "11", "12" },
                                  { "13", "14", "15", " " } };
+            target.Board = gameField;
             bool actual = target.IsSolved();
             Assert.AreEqual(expected, actual);
         }
@@ -385,7 +386,8 @@ namespace GameFifteen.Test
             actual = target.ToString();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
-        }
+
+       }
 
         /// <summary>
         ///A test for Board
