@@ -74,8 +74,11 @@
                         {
                             if (board[currentElementRow - 1, currentElementCol] == " ")
                             {
-                                string updatedBoard = GetUpdatedBoard(board, new Position(currentElementRow - 1, currentElementCol),
-                                    new Position(currentElementRow, currentElementCol), input);
+                                string updatedBoard = GetUpdatedBoard(
+                                    board, 
+                                    new Position(currentElementRow - 1, currentElementCol),
+                                    new Position(currentElementRow, currentElementCol),
+                                    input);
                                 Console.WriteLine(updatedBoard);
                                 blank = true;
                                 moves++;
@@ -89,8 +92,11 @@
                         {
                             if (board[currentElementRow + 1, currentElementCol] == " ")
                             {
-                                string updatedBoard = GetUpdatedBoard(board, new Position(currentElementRow + 1, currentElementCol),
-                                    new Position(currentElementRow, currentElementCol), input);
+                                string updatedBoard = GetUpdatedBoard(
+                                    board, 
+                                    new Position(currentElementRow + 1, currentElementCol),
+                                    new Position(currentElementRow, currentElementCol), 
+                                    input);
                                 Console.WriteLine(updatedBoard);
                                 blank = true;
                                 moves++;
@@ -104,8 +110,11 @@
                         {
                             if (board[currentElementRow, currentElementCol - 1] == " ")
                             {
-                                string updatedBoard = GetUpdatedBoard(board, new Position(currentElementRow, currentElementCol - 1),
-                                    new Position(currentElementRow, currentElementCol), input);
+                                string updatedBoard = GetUpdatedBoard(
+                                    board,
+                                    new Position(currentElementRow, currentElementCol - 1),
+                                    new Position(currentElementRow, currentElementCol),
+                                    input);
                                 Console.WriteLine(updatedBoard);
                                 blank = true;
                                 moves++;
@@ -119,8 +128,11 @@
                         {
                             if (board[currentElementRow, currentElementCol + 1] == " ")
                             {
-                                string updatedBoard = GetUpdatedBoard(board, new Position(currentElementRow, currentElementCol + 1),
-                   new Position(currentElementRow, currentElementCol), input);
+                                string updatedBoard = GetUpdatedBoard(
+                                    board, 
+                                    new Position(currentElementRow, currentElementCol + 1),
+                                    new Position(currentElementRow, currentElementCol), 
+                                    input);
                                 Console.WriteLine(updatedBoard);
                                 blank = true;
                                 moves++;

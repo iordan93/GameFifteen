@@ -3,18 +3,18 @@
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    //TODO: must replace pattern with real unit tests!!!!
+    // TODO: must replace pattern with real unit tests!!!!
     
     /// <summary>
-    ///This is a test class for PositionTest and is intended
-    ///to contain all PositionTest Unit Tests
-    ///</summary>
+    /// This is a test class for PositionTest and is intended
+    /// to contain all PositionTest Unit Tests
+    /// </summary>
     [TestClass]
     public class PositionTest
     {
         /// <summary>
-        ///A test for Position Constructor
-        ///</summary>
+        /// A test for Position Constructor
+        /// </summary>
         [TestMethod]
         public void PositionConstructorTest()
         {
@@ -25,8 +25,8 @@
         }
 
         /// <summary>
-        ///A test for Column
-        ///</summary>
+        /// A test for Column
+        /// </summary>
         [TestMethod]
         public void ColumnTest()
         {
@@ -42,8 +42,8 @@
         }
 
         /// <summary>
-        ///A test for Row
-        ///</summary>
+        /// A test for Row
+        /// </summary>
         [TestMethod]
         public void RowTest()
         {
