@@ -1,11 +1,17 @@
-﻿using System;
-using System.Linq;
-
-namespace GameFifteen
+﻿namespace GameFifteen
 {
+    using System;
+    using System.Linq;
+
     public class Score : IComparable<Score>
     {
         private int moves;
+
+        public Score(int moves, string playerName)
+        {
+            this.Moves = moves;
+            this.PlayerName = playerName;
+        }
 
         public int Moves
         {
@@ -28,12 +34,6 @@ namespace GameFifteen
         }
 
         public string PlayerName { get; set; }
-
-        public Score(int moves, string playerName)
-        {
-            this.Moves = moves;
-            this.PlayerName = playerName;
-        }
     
         public int CompareTo(Score other)
         {
@@ -42,8 +42,8 @@ namespace GameFifteen
 
         public override string ToString()
         {
-            string moveOrMovesString = (Moves == 1) ? " move" : " moves";
-            string result = PlayerName + " --> " + Moves + moveOrMovesString;
+            string moveOrMovesString = (this.Moves == 1) ? " move" : " moves";
+            string result = this.PlayerName + " --> " + this.Moves + moveOrMovesString;
 
             return result;
         }

@@ -83,7 +83,7 @@
             }
         }
 
-        public void Generate()
+        public void GenerateBoard()
         {
             do
             {

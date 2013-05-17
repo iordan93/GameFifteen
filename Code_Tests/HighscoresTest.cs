@@ -1,13 +1,13 @@
-﻿using System;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace GameFifteen.Test
+﻿namespace GameFifteen.Test
 {
+    using System;
+    using System.Text;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class HighscoresTest
     {
-        Highscores highscores = new Highscores();
+        private Highscores highscores = new Highscores();
 
         [TestMethod]
         public void TestEmptyHighscores()
@@ -31,7 +31,6 @@ namespace GameFifteen.Test
             assertedResult.AppendLine("1. john --> 5 moves");
 
             Assert.AreEqual(assertedResult.ToString(), result);
-
         }
 
         [TestMethod]
@@ -65,7 +64,7 @@ namespace GameFifteen.Test
             highscores.Add(new Score(5, "john"));
             highscores.Add(new Score(4, "johnny"));
 
-            int count = highscores.scores.Count;
+            int count = highscores.Scores.Count;
 
             Assert.AreEqual(2, count);
         }
@@ -141,7 +140,7 @@ namespace GameFifteen.Test
             highscores.Add(new Score(3, "peter"));
             highscores.Add(new Score(10, "paul"));
 
-            int count = highscores.scores.Count;
+            int count = highscores.Scores.Count;
 
             Assert.AreEqual(5, count);
         }

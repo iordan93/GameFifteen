@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace GameFifteen
+﻿namespace GameFifteen
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Highscores
     {
         private const int Size = 5;
+        private List<Score> scores = null;
 
-        internal List<Score> scores;
+        public Highscores()
+        {
+            this.scores = new List<Score>(Size);
+        }
 
         public List<Score> Scores
         {
@@ -17,11 +20,6 @@ namespace GameFifteen
             {
                 return this.scores;
             }
-        }
-
-        public Highscores()
-        {
-            this.scores = new List<Score>(Size);
         }
 
         public bool IsHighscore(int points)
@@ -62,7 +60,7 @@ namespace GameFifteen
 
             for (int i = 0; i < this.Scores.Count; i++)
             {
-                result.AppendLine(String.Format("{0}. {1}", i + 1, this.Scores[i].ToString()));
+                result.AppendLine(string.Format("{0}. {1}", i + 1, this.Scores[i].ToString()));
             }
 
             return result.ToString();

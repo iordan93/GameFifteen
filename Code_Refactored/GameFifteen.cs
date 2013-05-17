@@ -14,7 +14,7 @@
             // "top" -> show scoreboard if any records. "exit" -> print bye, exit loop. DEFAULT: Is INPUT number? Is number in range? -> Illegal number! Is number able to be moved?
             // -> Illegal move! Illegal command! | If game finished (puzzle solved) -> scoreboard.method...
             GameBoard board = new GameBoard(4);
-            board.Generate();
+            board.GenerateBoard();
 
             int moves = 0;
 
@@ -40,7 +40,7 @@
                 if (input == "restart")
                 {
                     Console.WriteLine("Here is your new matrica, have a good play : \n\n\n");
-                    board.Generate();
+                    board.GenerateBoard();
                     Console.WriteLine(board.ToString());
                     moves = 0;
                     continue;
@@ -149,21 +149,21 @@
 
             Console.WriteLine("Your result is {0} moves !", moves);
 
-            // TODO: Extract method. In class. Fix bug! (moves = 0)
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    if (Highscores.moves[i] > moves)
-            //    {
-            //        Console.WriteLine("Congratulations, you have just put a new record");
-            //        Console.Write("Please enter your name : ");
-
-            //        Highscores.moves[i] = moves;
-
-            //        Highscores.players[i] = Console.ReadLine();
-            //    }
-            //}
-
-            // TODO: A new game doesn't start automatically!
+            //// TODO: Extract method. In class. Fix bug! (moves = 0)
+            ////for (int i = 0; i < 5; i++)
+            ////{
+            ////    if (Highscores.moves[i] > moves)
+            ////    {
+            ////        Console.WriteLine("Congratulations, you have just put a new record");
+            ////        Console.Write("Please enter your name : ");
+            //
+            ////        Highscores.moves[i] = moves;
+            //
+            ////        Highscores.players[i] = Console.ReadLine();
+            ////    }
+            ////}
+            //
+            //// TODO: A new game doesn't start automatically!
         }
 
         private static string GetUpdatedBoard(GameBoard gameBoard, Position oldPosition, Position newPosition, string input)
