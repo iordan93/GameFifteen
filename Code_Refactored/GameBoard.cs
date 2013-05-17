@@ -6,7 +6,7 @@
 
     public class GameBoard
     {
-        private int gameBoardSize = 4;
+        private int size = 4;
 
         private string[,] board;
 
@@ -43,8 +43,8 @@
         {
             get
             {
-                if (indexRow < 0 || indexRow > this.gameBoardSize ||
-                    indexColumn < 0 || indexColumn > this.gameBoardSize)
+                if (indexRow < 0 || indexRow > this.size ||
+                    indexColumn < 0 || indexColumn > this.size)
                 {
                     throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
@@ -53,8 +53,8 @@
 
             set
             {
-                if (indexRow < 0 || indexRow > this.gameBoardSize ||
-                    indexColumn < 0 || indexColumn > this.gameBoardSize)
+                if (indexRow < 0 || indexRow > this.size ||
+                    indexColumn < 0 || indexColumn > this.size)
                 {
                     throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
@@ -70,11 +70,11 @@
         {
             get
             {
-                return this.gameBoardSize;
+                return this.size;
             }
             private set
             {
-                this.gameBoardSize = value;
+                this.size = value;
             }
         }
 

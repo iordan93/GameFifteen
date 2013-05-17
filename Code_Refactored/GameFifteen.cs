@@ -235,13 +235,15 @@
 
         static void Main(string[] args)
         {
+            // TODO: Manage all output and change to something which makes sense (YD)
+
             // TODO: Scenario:
             // Create scoreboard. Print welcome msg. (Create game field. Check if solvable.) Wait for user command until "exit" (switch). "restart" -> go back to print msg?
             // "top" -> show scoreboard if any records. "exit" -> print bye, exit loop. DEFAULT: Is INPUT number? Is number in range? -> Illegal number! Is number able to be moved?
             // -> Illegal move! Illegal command! | If game finished (puzzle solved) -> scoreboard.method...
 
             GameBoard board = new GameBoard(4);
-           // string[,] gameField = GameFifteen.GenerateGameField();
+            // string[,] gameField = GameFifteen.GenerateGameField();
             board.GenerateField();
 
             int moves = 0;
@@ -251,17 +253,12 @@
                 "game and 'exit' \nto quit the game.\n\n\n");
 
             Console.WriteLine(board.ToString());
-            // Drawmatrica(gameField);
-            #region YD
+
             while (!board.IsSolved())
             {
-                Console.Write("Enter a number to move : ");
+                Console.Write("Enter a number to move: ");
                 string input = Console.ReadLine();
                 bool blank = false;
-
-
-                int rowEmptySpace = board.FindEmptyCell().Row;
-                int columnEmptySpace = board.FindEmptyCell().Column;
 
                 if (input == "exit")
                 {
@@ -297,19 +294,12 @@
                 int rowCurrentElement = FindCurrentElement(board, input).Row;
                 int columnCurrentElement = FindCurrentElement(board, input).Column;
 
-
-
-
                 // TODO: Magic, magic, magic... Method?
                 for (int i = 0; i < 4; i++)
                 {
                     if (i == 0)
                     {
-                        if (rowCurrentElement - 1 < 0)
-                        {
-                            continue;
-                        }
-                        else
+                        if (rowCurrentElement - 1 >= 0)
                         {
                             if (board[rowCurrentElement - 1, columnCurrentElement] == " ")
                             {
@@ -319,13 +309,10 @@
                             }
                         }
                     }
+
                     if (i == 1)
                     {
-                        if (rowCurrentElement + 1 > 3)
-                        {
-                            continue;
-                        }
-                        else
+                        if(rowCurrentElement + 1 <= 3)
                         {
                             if (board[rowCurrentElement + 1, columnCurrentElement] == " ")
                             {
@@ -335,13 +322,10 @@
                             }
                         }
                     }
+
                     if (i == 2)
                     {
-                        if (columnCurrentElement - 1 < 0)
-                        {
-                            continue;
-                        }
-                        else
+                        if (columnCurrentElement - 1 >= 0)
                         {
                             if (board[rowCurrentElement, columnCurrentElement - 1] == " ")
                             {
@@ -351,43 +335,26 @@
                             }
                         }
                     }
+
                     if (i == 3)
-                    {//tuka ne sym siguren kakvo e tova ama raboti!
-
-
-                        if (columnCurrentElement + 1 > 3)
+                    {
+                        if (columnCurrentElement + 1 <= 3)
                         {
-
-
-                            continue;
-                        }
-
-
-                        else
-                        {
-
                             if (board[rowCurrentElement, columnCurrentElement + 1] == " ")
                             {
-
                                 ChangeAndDraw(board, rowCurrentElement, columnCurrentElement + 1, rowCurrentElement, columnCurrentElement, input);
                                 blank = true;
                                 moves++;
-
                             }
-
                         }
                     }
-
                 }
 
                 if (!blank)
                 {
-
                     Console.WriteLine("Cheat ! Illegal command ! !");
                 }
-
             }
-            #endregion
 
             Console.WriteLine("Your result is {0} moves !", moves);
 

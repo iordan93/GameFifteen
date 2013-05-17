@@ -11,7 +11,9 @@
        /// <summary>
        /// This is the top score table
        /// </summary>
-      public static int[] moves = new int[5];
-      public static string[] players = new string[5];
+       public const int PlayersCount = 5;
+    
+       public static int[] moves = new int[PlayersCount];
+      public static string[] players = new string[PlayersCount];
    }
 }
