@@ -1,15 +1,10 @@
-﻿namespace GameFifteen.Test
-{
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-    // TODO: must replace pattern with real unit tests!!!!
-    
-    /// <summary>
-    /// This is a test class for PositionTest and is intended
-    /// to contain all PositionTest Unit Tests
-    /// </summary>
-    [TestClass]
+namespace GameFifteen.Test
+{
+        /// <summary>
+    ///</summary>    [TestClass]
     public class PositionTest
     {
         /// <summary>
@@ -18,10 +13,10 @@
         [TestMethod]
         public void PositionConstructorTest()
         {
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
+            int row = 2;
+            int column = 2;
             Position target = new Position(row, column);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            Assert.IsTrue((target != null) && (target.Row == row) && (target.Column == column));
         }
 
         /// <summary>
@@ -30,15 +25,14 @@
         [TestMethod]
         public void ColumnTest()
         {
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            Position target = new Position(row, column); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
+            int row = 0;
+            int column = 0;
+            Position target = new Position(row, column);
+            int expected = 1;
             int actual;
             target.Column = expected;
             actual = target.Column;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
 
         /// <summary>
@@ -47,15 +41,38 @@
         [TestMethod]
         public void RowTest()
         {
-            int row = 0; // TODO: Initialize to an appropriate value
-            int column = 0; // TODO: Initialize to an appropriate value
-            Position target = new Position(row, column); // TODO: Initialize to an appropriate value
-            int expected = 0; // TODO: Initialize to an appropriate value
+            int row = 0;
+            int column = 0;
+            Position target = new Position(row, column);
+            int expected = 2;
             int actual;
             target.Row = expected;
             actual = target.Row;
             Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+        }
+
+        /// <summary>
+        /// A test for ArgumentOutOfRangeException in Column property.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void NegativeColumnExceptionTest()
+        {
+            int row = 0;
+            int column = -2;
+            Position target = new Position(row, column);
+        }
+
+        /// <summary>
+        /// A test for ArgumentOutOfRangeException in Row property.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void NegativeRowExceptionTest()
+        {
+            int row = -2;
+            int column = 0;
+            Position target = new Position(row, column);
         }
     }
 }
