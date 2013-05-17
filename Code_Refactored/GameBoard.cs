@@ -281,9 +281,9 @@
 
             this.Board[generator.Next(this.Size), generator.Next(this.Size)] = " ";
 
-            for (int i = 0; i < this.Size; i++)
+            for (int row = 0; row < this.Size; row++)
             {
-                for (int j = 0; j < this.Size; j++)
+                for (int col = 0; col < this.Size; col++)
                 {
                     isPositionFilled = false;
 
@@ -291,7 +291,7 @@
                     {
                         int number = generator.Next(1, this.Size * this.Size);
 
-                        if (gameField[i, j] == " ")
+                        if (gameField[row, col] == " ")
                         {
                             isPositionFilled = true;
                         }
@@ -299,7 +299,7 @@
                         {
                             if (!usedNumbers.Contains(number))
                             {
-                                gameField[i, j] = number.ToString();
+                                gameField[row, col] = number.ToString();
                                 isPositionFilled = true;
                                 usedNumbers.Add(number);
                             }

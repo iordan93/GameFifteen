@@ -20,8 +20,6 @@
                 Console.Write("Enter a number to move: ");
                 string input = GameEngine.ReadInput();
 
-                bool hasBlankNeighbour = false;
-
                 if (input == "exit")
                 {
                     Console.WriteLine("Good bye!");
@@ -54,56 +52,8 @@
                 }
 
                 Position currentElement = board.FindCurrentElement(input);
-                for (int i = 0; i < 4; i++)
-                {
-                    if (currentElement.Row - 1 >= 0 && board[currentElement.Row - 1, currentElement.Column] == " ")
-                    {
-                        string updatedBoard = board.GetUpdatedBoard(
-                            new Position(currentElement.Row - 1, currentElement.Column),
-                            new Position(currentElement.Row, currentElement.Column),
-                            input);
-                        Console.WriteLine(updatedBoard);
-
-                        hasBlankNeighbour = true;
-                        moves++;
-                    }
-
-                    if (currentElement.Row + 1 <= 3 && board[currentElement.Row + 1, currentElement.Column] == " ")
-                    {
-                        string updatedBoard = board.GetUpdatedBoard(
-                            new Position(currentElement.Row + 1, currentElement.Column),
-                            new Position(currentElement.Row, currentElement.Column),
-                            input);
-                        Console.WriteLine(updatedBoard);
-
-                        hasBlankNeighbour = true;
-                        moves++;
-                    }
-
-                    if (currentElement.Column - 1 >= 0 && board[currentElement.Row, currentElement.Column - 1] == " ")
-                    {
-                        string updatedBoard = board.GetUpdatedBoard(
-                            new Position(currentElement.Row, currentElement.Column - 1),
-                            new Position(currentElement.Row, currentElement.Column),
-                            input);
-
-                        Console.WriteLine(updatedBoard);
-                        hasBlankNeighbour = true;
-                        moves++;
-                    }
-
-                    if (currentElement.Column + 1 <= 3 && board[currentElement.Row, currentElement.Column + 1] == " ")
-                    {
-                        string updatedBoard = board.GetUpdatedBoard(
-                            new Position(currentElement.Row, currentElement.Column + 1),
-                            new Position(currentElement.Row, currentElement.Column),
-                            input);
-
-                        Console.WriteLine(updatedBoard);
-                        hasBlankNeighbour = true;
-                        moves++;
-                    }
-                }
+               
+                bool hasBlankNeighbour = GameEngine.TryMoveBlock(currentElement, board, input, ref moves);
 
                 if (!hasBlankNeighbour)
                 {
