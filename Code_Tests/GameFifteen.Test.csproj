@@ -73,12 +73,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="GameBoardTests.cs" />
-    <Compile Include="HighscoresTests.cs" />
-    <Compile Include="PositionTests.cs" />
+    <Compile Include="GameBoardTest.cs" />
+    <Compile Include="GameFifteenTest.cs" />
+    <Compile Include="HighscoresTest.cs" />
+    <Compile Include="PositionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScoreTests.cs" />
-    <Compile Include="IntegrationTests.cs" />
+    <Compile Include="ScoreTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Code_Refactored\GameFifteen.csproj">
