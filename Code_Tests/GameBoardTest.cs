@@ -6,8 +6,6 @@
     [TestClass]
     public class GameBoardTest
     {
-        // TODO: Format matrices properly
-
         /// <summary>
         /// A test for IsSolvable - WithUnsolvableField 1 test.
         /// </summary>
@@ -69,7 +67,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 1 test - 17 positions which need 80 moves
+        /// A test for IsSolvable - WithSolvableField 1 test - 17 positions which need 80 moves.
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField1Test()
@@ -89,7 +87,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 2 test 
+        /// A test for IsSolvable - WithSolvableField 2 test.
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField2Test()
@@ -109,7 +107,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 3 test 
+        /// A test for IsSolvable - WithSolvableField 3 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField3Test()
@@ -129,7 +127,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 4 test 
+        /// A test for IsSolvable - WithSolvableField 4 test.
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField4Test()
@@ -149,7 +147,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 5 test 
+        /// A test for IsSolvable - WithSolvableField 5 test.
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField5Test()
@@ -169,7 +167,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 6 test 
+        /// A test for IsSolvable - WithSolvableField 6 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField6Test()
@@ -189,7 +187,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 7 test 
+        /// A test for IsSolvable - WithSolvableField 7 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField7Test()
@@ -209,7 +207,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 8 test 
+        /// A test for IsSolvable - WithSolvableField 8 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField8Test()
@@ -228,7 +226,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 9 test 
+        /// A test for IsSolvable - WithSolvableField 9 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField9Test()
@@ -248,7 +246,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 10 test 
+        /// A test for IsSolvable - WithSolvableField 10 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField10Test()
@@ -268,7 +266,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 11 test 
+        /// A test for IsSolvable - WithSolvableField 11 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField11Test()
@@ -288,7 +286,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 12 test 
+        /// A test for IsSolvable - WithSolvableField 12 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField12Test()
@@ -308,7 +306,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 13 test 
+        /// A test for IsSolvable - WithSolvableField 13 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField13Test()
@@ -328,7 +326,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 14 test 
+        /// A test for IsSolvable - WithSolvableField 14 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField14Test()
@@ -348,7 +346,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 15 test 
+        /// A test for IsSolvable - WithSolvableField 15 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField15Test()
@@ -368,7 +366,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 16 test 
+        /// A test for IsSolvable - WithSolvableField 16 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField16Test()
@@ -388,7 +386,7 @@
         }
 
         /// <summary>
-        /// A test for IsSolvable - WithSolvableField 17 test 
+        /// A test for IsSolvable - WithSolvableField 17 test. 
         /// </summary>
         [TestMethod]
         public void IsSolvableWithSolvableField17Test()
@@ -408,7 +406,7 @@
         }
 
         /// <summary>
-        /// A test for GameBoard Constructor
+        /// A test for GameBoard Constructor.
         /// </summary>
         [TestMethod]
         public void GameBoardConstructorTest()
@@ -419,13 +417,11 @@
         }
 
         /// <summary>
-        /// A test for IsSolved - solved board
+        /// A test for IsSolved - solved board.
         /// </summary>
         [TestMethod]
         public void IsSolvedSolvedBoardTest()
         {
-            int gameBoardSize = 4;
-            GameBoard target = new GameBoard(gameBoardSize);
             string[,] gameField =
             {
                 { "1", "2", "3", "4" },
@@ -433,20 +429,17 @@
                 { "9", "10", "11", "12" },
                 { "13", "14", "15", " " } 
             };
-            
-            target.Board = gameField;
+            GameBoard target = new GameBoard(gameField);
             
             Assert.IsTrue(target.IsSolved());
         }
 
         /// <summary>
-        /// A test for IsSolved
+        /// A test for IsSolved.
         /// </summary>
         [TestMethod]
         public void IsSolvedEmptyBoardTest()
         {
-            int gameBoardSize = 4;
-            GameBoard target = new GameBoard(gameBoardSize);
             string[,] gameField =
             {
                 { string.Empty, string.Empty, string.Empty, string.Empty },
@@ -454,40 +447,60 @@
                 { string.Empty, string.Empty, string.Empty, string.Empty },
                 { string.Empty, string.Empty, string.Empty, string.Empty }
             };
-            target.Board = gameField;
+            GameBoard target = new GameBoard(gameField);
             
             Assert.IsFalse(target.IsSolved());
         }
 
         /// <summary>
-        /// A test for ToString
+        /// A test for valid ToString().
         /// </summary>
         [TestMethod]
         public void ToStringTest()
         {
-            int gameBoardSize = 0; // TODO: Initialize to an appropriate value
-            GameBoard target = new GameBoard(gameBoardSize); // TODO: Initialize to an appropriate value
-            string expected = string.Empty; // TODO: Initialize to an appropriate value
-            string actual;
-            actual = target.ToString();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            string[,] gameField =
+            {
+                { "1", "2", "3", "4" },
+                { "5", "6", "7", "8" },
+                { "9", "10", "11", "12" },
+                { "13", "14", "15", " " } 
+            };
+            GameBoard target = new GameBoard(gameField);
+
+            string expected = "- - - - - -\n|  1  2  3  4 |\n|  5  6  7  8 |\n|  9 10 11 12 |\n| 13 14 15    |\n  - - - - - -\n";
+
+            Assert.AreEqual(expected, target.ToString());
         }
 
         /// <summary>
-        /// A test for Board
+        /// A test for non-square entered board.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void BoardNonSquareTest()
+        {
+            string[,] gameField =
+            {
+                { "1", "2", "3", "4", "5" },
+                { "1", "2", "3", "4", "5" },
+                { "1", "2", "3", "4", "5" },
+                { "1", "2", "3", "4", "5" }                
+            };
+            GameBoard target = new GameBoard(gameField);
+        }
+
+        /// <summary>
+        /// A test for Board.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void BoardTest()
+        public void BoardNullTest()
         {
-            int gameBoardSize = 4;
-            GameBoard target = new GameBoard(gameBoardSize);
-            target.Board = null;
+            GameBoard target = new GameBoard(null);
         }
 
         /// <summary>
-        /// A test for Item - Write to negative row -> Exception
+        /// A test for Item - Write to negative row -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -502,7 +515,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Write to negative column -> Exception
+        /// A test for Item - Write to negative column -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -517,7 +530,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Write to column bigger than size of board -> Exception
+        /// A test for Item - Write to column bigger than size of board -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -532,7 +545,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Write to row bigger than size of board -> Exception
+        /// A test for Item - Write to row bigger than size of board -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -547,7 +560,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Read / Write / Compare
+        /// A test for Item - Read / Write / Compare.
         /// </summary>
         [TestMethod]
         public void ItemReadWriteTest()
@@ -563,7 +576,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Read from column bigger than size of board -> Exception
+        /// A test for Item - Read from column bigger than size of board -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
@@ -577,7 +590,7 @@
         }
 
         /// <summary>
-        /// A test for Item - Read from row bigger than size of board -> Exception
+        /// A test for Item - Read from row bigger than size of board -> Exception.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]

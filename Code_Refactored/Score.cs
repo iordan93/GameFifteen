@@ -1,12 +1,15 @@
 ﻿namespace GameFifteen
 {
+    using System;
+
     /// <summary>
     /// A class containing information about the number of moves and the nickname/name of player who scored.
-    /// </summary>    public class Score : IComparable<Score>
+    /// </summary>    
+    public class Score : IComparable<Score>
     {
         private int moves;
 
-/// <summary>
+        /// <summary>
         /// Initializes a new instance of the <see cref="Score" /> class.
         /// </summary>
         /// <param name="moves">The number of moves done by player.</param>
@@ -21,6 +24,7 @@
         /// Gets or sets the number of positive moves done.
         /// </summary>
         /// <value>The moves.</value>        public int Moves
+        public int Moves
         {
             get
             {
@@ -45,7 +49,7 @@
         /// </summary>
         /// <value>The player name.</value>
         public string PlayerName { get; set; }
-    
+
         /// <summary>
         /// Compares scores by moves.
         /// </summary>

@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameEngine.cs" />
     <Compile Include="GameFifteen.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="Position.cs" />

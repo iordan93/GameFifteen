@@ -1,14 +1,13 @@
 ﻿namespace GameFifteen
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Highscores
     {
-        private const int Size = 5;
+        public const int Size = 5;
         private List<Score> scores = null;
-
-        public Highscores()
-        {
-            this.scores = new List<Score>(Size);
-        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Highscores"/> class.
@@ -19,13 +18,19 @@
         }
 
         /// <summary>
-        /// Gets the list of scores.
+        /// Gets or sets the list of scores.
         /// </summary>
+        /// <value>Gets or sets the scores list.</value>
         public List<Score> Scores
         {
             get
             {
                 return this.scores;
+            }
+
+            set
+            {
+                this.scores = value;
             }
         }
 
@@ -55,17 +60,9 @@
         }
 
         /// <summary>
-        /// Prints the list of top scores on the console.
-        /// </summary>
-        public void DrawHighscores()
-        {
-            Console.WriteLine(this.ToString());
-        }
-
-        /// <summary>
         /// Casts <see cref="Highscores"/> to String.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the System.String representation of the top score board.</returns>
         public override string ToString()
         {
             if (this.Scores.Count == 0)
@@ -78,9 +75,18 @@
 
             for (int i = 0; i < this.Scores.Count; i++)
             {
-                result.AppendLine(String.Format("{0}. {1}", i + 1, this.Scores[i].ToString()));            }
+                result.AppendLine(string.Format("{0}. {1}", i + 1, this.Scores[i].ToString()));
+            }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// Prints the list of top scores on the console.
+        /// </summary>
+        internal void DrawHighscores()
+        {
+            Console.WriteLine(this.ToString());
         }
     }
 }

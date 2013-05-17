@@ -6,189 +6,123 @@
     {
         public static void Main(string[] args)
         {
-            // TODO: Manage all output and change to something which makes sense (YD)
-
-            // TODO: Scenario:
-            // Create scoreboard. Print welcome msg. (Create game 
-            // Check if solvable.) Wait for user command until "exit" (switch). "restart" -> go back to print msg?
-            // "top" -> show scoreboard if any records. "exit" -> print bye, exit loop. DEFAULT: Is INPUT number? Is number in range? -> Illegal number! Is number able to be moved?
-            // -> Illegal move! Illegal command! | If game finished (puzzle solved) -> scoreboard.method...
-            GameBoard board = new GameBoard(4);
-            board.GenerateBoard();
-
             int moves = 0;
+            GameBoard board = new GameBoard(4);
+            Highscores highscores = new Highscores();
 
-            // TODO: Extract to method the welcome message? And with const?
-            Console.WriteLine("Welcome to the game \"15\". Please try to arrange the numbers " +
-                "sequentially .\nUse 'top' to view the top scoreboard, 'restart' to start a new " +
-                "game and 'exit' \nto quit the game.\n\n\n");
+            GameEngine.DisplayWelcomeMessage();
 
-            Console.WriteLine(board.ToString());
+            board.GenerateBoard();
+            Console.WriteLine(board);
 
             while (!board.IsSolved())
             {
                 Console.Write("Enter a number to move: ");
-                string input = Console.ReadLine();
-                bool blank = false;
+                string input = GameEngine.ReadInput();
+
+                bool hasBlankNeighbour = false;
 
                 if (input == "exit")
                 {
-                    // TODO: Not implemented!
-                    Console.WriteLine("Good bye !");
+                    Console.WriteLine("Good bye!");
+                    break;
                 }
 
                 if (input == "restart")
                 {
-                    Console.WriteLine("Here is your new matrica, have a good play : \n\n\n");
+                    GameEngine.DisplayWelcomeMessage();
                     board.GenerateBoard();
-                    Console.WriteLine(board.ToString());
+                    Console.WriteLine(board);
                     moves = 0;
                     continue;
                 }
 
                 if (input == "top")
                 {
-                    // TODO: Draw if records are presented. Extract method. In class.
-                    for (int i = 0; i < 5; i++)
-                    {
-                        // Console.WriteLine("Name : {0} , moves : {1} ", Highscores.players[i], Highscores.moves[i]);
-                    }
-
+                    Console.WriteLine(highscores);
                     continue;
                 }
 
-                if (FindCurrentElement(board, input) == null)
+                try
                 {
+                    board.FindCurrentElement(input);
+                }
+                catch (ArgumentException)
+                {
+                    Console.WriteLine("Illegal command!");
                     continue;
                 }
 
-                int currentElementRow = FindCurrentElement(board, input).Row;
-                int currentElementCol = FindCurrentElement(board, input).Column;
-
-                // TODO: Magic, magic, magic... Method?
+                Position currentElement = board.FindCurrentElement(input);
                 for (int i = 0; i < 4; i++)
                 {
-                    if (i == 0)
+                    if (currentElement.Row - 1 >= 0 && board[currentElement.Row - 1, currentElement.Column] == " ")
                     {
-                        if (currentElementRow - 1 >= 0)
-                        {
-                            if (board[currentElementRow - 1, currentElementCol] == " ")
-                            {
-                                string updatedBoard = GetUpdatedBoard(
-                                    board, 
-                                    new Position(currentElementRow - 1, currentElementCol),
-                                    new Position(currentElementRow, currentElementCol),
-                                    input);
-                                Console.WriteLine(updatedBoard);
-                                blank = true;
-                                moves++;
-                            }
-                        }
+                        string updatedBoard = board.GetUpdatedBoard(
+                            new Position(currentElement.Row - 1, currentElement.Column),
+                            new Position(currentElement.Row, currentElement.Column),
+                            input);
+                        Console.WriteLine(updatedBoard);
+
+                        hasBlankNeighbour = true;
+                        moves++;
                     }
 
-                    if (i == 1)
+                    if (currentElement.Row + 1 <= 3 && board[currentElement.Row + 1, currentElement.Column] == " ")
                     {
-                        if (currentElementRow + 1 <= 3)
-                        {
-                            if (board[currentElementRow + 1, currentElementCol] == " ")
-                            {
-                                string updatedBoard = GetUpdatedBoard(
-                                    board, 
-                                    new Position(currentElementRow + 1, currentElementCol),
-                                    new Position(currentElementRow, currentElementCol), 
-                                    input);
-                                Console.WriteLine(updatedBoard);
-                                blank = true;
-                                moves++;
-                            }
-                        }
+                        string updatedBoard = board.GetUpdatedBoard(
+                            new Position(currentElement.Row + 1, currentElement.Column),
+                            new Position(currentElement.Row, currentElement.Column),
+                            input);
+                        Console.WriteLine(updatedBoard);
+
+                        hasBlankNeighbour = true;
+                        moves++;
                     }
 
-                    if (i == 2)
+                    if (currentElement.Column - 1 >= 0 && board[currentElement.Row, currentElement.Column - 1] == " ")
                     {
-                        if (currentElementCol - 1 >= 0)
-                        {
-                            if (board[currentElementRow, currentElementCol - 1] == " ")
-                            {
-                                string updatedBoard = GetUpdatedBoard(
-                                    board,
-                                    new Position(currentElementRow, currentElementCol - 1),
-                                    new Position(currentElementRow, currentElementCol),
-                                    input);
-                                Console.WriteLine(updatedBoard);
-                                blank = true;
-                                moves++;
-                            }
-                        }
+                        string updatedBoard = board.GetUpdatedBoard(
+                            new Position(currentElement.Row, currentElement.Column - 1),
+                            new Position(currentElement.Row, currentElement.Column),
+                            input);
+
+                        Console.WriteLine(updatedBoard);
+                        hasBlankNeighbour = true;
+                        moves++;
                     }
 
-                    if (i == 3)
+                    if (currentElement.Column + 1 <= 3 && board[currentElement.Row, currentElement.Column + 1] == " ")
                     {
-                        if (currentElementCol + 1 <= 3)
-                        {
-                            if (board[currentElementRow, currentElementCol + 1] == " ")
-                            {
-                                string updatedBoard = GetUpdatedBoard(
-                                    board, 
-                                    new Position(currentElementRow, currentElementCol + 1),
-                                    new Position(currentElementRow, currentElementCol), 
-                                    input);
-                                Console.WriteLine(updatedBoard);
-                                blank = true;
-                                moves++;
-                            }
-                        }
+                        string updatedBoard = board.GetUpdatedBoard(
+                            new Position(currentElement.Row, currentElement.Column + 1),
+                            new Position(currentElement.Row, currentElement.Column),
+                            input);
+
+                        Console.WriteLine(updatedBoard);
+                        hasBlankNeighbour = true;
+                        moves++;
                     }
                 }
 
-                if (!blank)
+                if (!hasBlankNeighbour)
                 {
-                    Console.WriteLine("Cheat ! Illegal command ! !");
+                    Console.WriteLine("Illegal move!");
                 }
             }
 
-            Console.WriteLine("Your result is {0} moves !", moves);
-
-            //// TODO: Extract method. In class. Fix bug! (moves = 0)
-            ////for (int i = 0; i < 5; i++)
-            ////{
-            ////    if (Highscores.moves[i] > moves)
-            ////    {
-            ////        Console.WriteLine("Congratulations, you have just put a new record");
-            ////        Console.Write("Please enter your name : ");
-            //
-            ////        Highscores.moves[i] = moves;
-            //
-            ////        Highscores.players[i] = Console.ReadLine();
-            ////    }
-            ////}
-            //
-            //// TODO: A new game doesn't start automatically!
-        }
-
-        private static string GetUpdatedBoard(GameBoard gameBoard, Position oldPosition, Position newPosition, string input)
-        {
-            gameBoard[oldPosition.Row, oldPosition.Column] = input;
-            gameBoard[newPosition.Row, newPosition.Column] = " ";
-            return gameBoard.ToString();
-        }
-
-        private static Position FindCurrentElement(GameBoard board, string input)
-        {
-            for (int row = 0; row < board.Size; row++)
+            if (moves > 0)
             {
-                for (int col = 0; col < board.Size; col++)
-                {
-                    if (board[row, col] == input)
-                    {
-                        return new Position(row, col);
-                    }
-                }
-            }
+                Console.WriteLine("Congratulations! You won the gaime in {0} moves.", moves);
+                Console.Write("Please enter your name for the top scoreboard: ");
+                string name = Console.ReadLine();
+                highscores.Add(new Score(moves, name));
+                Console.WriteLine(highscores);
 
-            // TODO: Add correct behaviour (YD)
-            Console.WriteLine("Cheat ! Illegal command ! !");
-            return null;
+                GameEngine.DisplayWelcomeMessage();
+                board.GenerateBoard();
+                Console.WriteLine(board);
+            }
         }
     }
 }

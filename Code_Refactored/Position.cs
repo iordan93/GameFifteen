@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace GameFifteen
+﻿namespace GameFifteen
 {
+    using System;
+
     /// <summary>
     /// A class representing position on board.
     /// </summary>
@@ -46,7 +46,7 @@ namespace GameFifteen
         /// <summary>
         /// Gets or sets the row.
         /// </summary>
-        /// <value>The row.</value>
+        /// <value>The row of the current position.</value>
         public int Row
         {
             get

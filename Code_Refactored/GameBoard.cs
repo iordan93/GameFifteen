@@ -4,15 +4,18 @@
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// The board for the game "Fifteen".
+    /// </summary>
     public class GameBoard
     {
         private int size = 4;
-
         private string[,] board;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GameBoard" /> class.
         /// </summary>
+        /// <param name="gameBoardSize">The dimensions of the board.</param>
         public GameBoard(int gameBoardSize)
         {
             this.Size = gameBoardSize;
@@ -20,7 +23,27 @@
         }
 
         /// <summary>
-        /// Gets or sets the game board.
+        /// Initializes a new instance of the <see cref="GameBoard" /> class.
+        /// </summary>
+        /// <param name="boardContent">The content of the board.</param>
+        public GameBoard(string[,] boardContent)
+        {
+            if (boardContent == null)
+            {
+                throw new ArgumentNullException("boardContent");
+            }
+
+            if (boardContent.GetLength(0) != boardContent.GetLength(1))
+            {
+                throw new ArgumentException("The board is not square.");
+            }
+
+            this.Size = boardContent.GetLength(0);
+            this.Board = boardContent;
+        }
+
+        /// <summary>
+        /// Gets the game board.
         /// </summary>
         /// <value>The game board.</value>
         public string[,] Board
@@ -30,7 +53,7 @@
                 return this.board;
             }
 
-            set
+            private set
             {
                 if (value == null)
                 {
@@ -99,8 +122,6 @@
             while (!this.IsSolvable(this.Board));
         }
 
-        // TODO: Place a comment about this method with reference!
-        // http://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
         public bool IsSolvable(string[,] gameBoard)
         {
             int[] numbersInOneRow = new int[gameBoard.Length];
@@ -157,13 +178,13 @@
         public bool IsSolved()
         {
             int counter = 1;
-            for (int i = 0; i < this.Size; i++)
+            for (int row = 0; row < this.Size; row++)
             {
-                for (int j = 0; j < this.Size; j++)
+                for (int col = 0; col < this.Size; col++)
                 {
-                    if (this.Board[i, j] != counter.ToString())
+                    if (this.Board[row, col] != counter.ToString())
                     {
-                        if (counter == 16 && this.Board[i, j] == " ")
+                        if (counter == this.Size * this.Size && this.Board[row, col] == " ")
                         {
                             return true;
                         }
@@ -212,16 +233,39 @@
             return null;
         }
 
+        internal string GetUpdatedBoard(Position oldPosition, Position newPosition, string input)
+        {
+            this[oldPosition.Row, oldPosition.Column] = input;
+            this[newPosition.Row, newPosition.Column] = " ";
+            return this.ToString();
+        }
+
+        internal Position FindCurrentElement(string input)
+        {
+            for (int row = 0; row < this.Size; row++)
+            {
+                for (int col = 0; col < this.Size; col++)
+                {
+                    if (this[row, col] == input)
+                    {
+                        return new Position(row, col);
+                    }
+                }
+            }
+
+            throw new ArgumentException(string.Format("The element {0} does not exist in the game board.", input));
+        }
+
         private Position FindEmptyCell()
         {
             Position result = null;
-            for (int i = 0; i < this.Size; i++)
+            for (int row = 0; row < this.Size; row++)
             {
-                for (int j = 0; j < this.Size; j++)
+                for (int col = 0; col < this.Size; col++)
                 {
-                    if (this.Board[i, j] == " ")
+                    if (this.Board[row, col] == " ")
                     {
-                        result = new Position(i, j);
+                        result = new Position(row, col);
                     }
                 }
             }
