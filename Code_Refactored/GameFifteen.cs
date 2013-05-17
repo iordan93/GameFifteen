@@ -1,9 +1,6 @@
 ﻿namespace GameFifteen
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
 
     public class GameFifteen
     {
@@ -210,30 +207,28 @@
         //    return result;
         //}
 
-
-
         private static void ChangeAndDraw(GameBoard gameBoard, int rowToChange, int columnToChange, int row, int column, string input)
         {
             // TODO: Spaghetti :P
             gameBoard[rowToChange, columnToChange] = input;
             gameBoard[row, column] = " ";
             Console.WriteLine(gameBoard.ToString());
-
         }
 
-        private static Position FindCurrentElement(GameBoard matrica, string input)
+        private static Position FindCurrentElement(GameBoard board, string input)
         {
-            // TODO: Fix "magic" number!
-            for (int i = 0; i < 4; i++)
+            for (int row = 0; row < board.Size; row++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int col = 0; col < board.Size; col++)
                 {
-                    if (matrica[i, j] == input)
+                    if (board[row, col] == input)
                     {
-                        return new Position(i, j);
+                        return new Position(row, col);
                     }
                 }
             }
+
+            // TODO: Add correct behaviour (YD)
             Console.WriteLine("Cheat ! Illegal command ! !");
             return null;
         }

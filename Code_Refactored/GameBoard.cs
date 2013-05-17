@@ -15,8 +15,8 @@
         /// </summary>
         public GameBoard(int gameBoardSize)
         {
-            this.GameBoardSize = gameBoardSize;
-            this.Board = new string[this.GameBoardSize, this.GameBoardSize];
+            this.Size = gameBoardSize;
+            this.Board = new string[this.Size, this.Size];
         }
 
         /// <summary>
@@ -43,18 +43,20 @@
         {
             get
             {
-                if (indexRow < 0 || indexRow > this.gameBoardSize || indexColumn < 0 || indexColumn > this.gameBoardSize)
+                if (indexRow < 0 || indexRow > this.gameBoardSize ||
+                    indexColumn < 0 || indexColumn > this.gameBoardSize)
                 {
-                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board-1.");
+                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
                 return this.Board[indexRow, indexColumn];
             }
 
             set
             {
-                if (indexRow < 0 || indexRow > this.gameBoardSize || indexColumn < 0 || indexColumn > this.gameBoardSize)
+                if (indexRow < 0 || indexRow > this.gameBoardSize ||
+                    indexColumn < 0 || indexColumn > this.gameBoardSize)
                 {
-                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board-1.");
+                    throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
                 this.Board[indexRow, indexColumn] = value;
             }
@@ -64,7 +66,7 @@
         /// Gets or sets the size of the game board.
         /// </summary>
         /// <value>The size of the game board.</value>
-        public int GameBoardSize
+        public int Size
         {
             get
             {
@@ -156,17 +158,17 @@
             List<int> usedNumbers = new List<int>();
             bool isPositionFilled = false;
 
-            this.Board[generator.Next(this.GameBoardSize), generator.Next(this.GameBoardSize)] = " ";
+            this.Board[generator.Next(this.Size), generator.Next(this.Size)] = " ";
 
-            for (int i = 0; i < this.GameBoardSize; i++)
+            for (int i = 0; i < this.Size; i++)
             {
-                for (int j = 0; j < this.GameBoardSize; j++)
+                for (int j = 0; j < this.Size; j++)
                 {
                     isPositionFilled = false;
 
                     do
                     {
-                        int number = generator.Next(1, this.GameBoardSize * this.GameBoardSize);
+                        int number = generator.Next(1, this.Size * this.Size);
 
                         if (gameField[i, j] == " ")
                         {
@@ -190,9 +192,9 @@
         internal Position FindEmptyCell()
         {
             Position result = null;
-            for (int i = 0; i < this.GameBoardSize; i++)
+            for (int i = 0; i < this.Size; i++)
             {
-                for (int j = 0; j < this.GameBoardSize; j++)
+                for (int j = 0; j < this.Size; j++)
                 {
                     if (this.Board[i, j] == " ")
                     {
@@ -207,9 +209,9 @@
         public bool IsSolved()
         {
             int counter = 1;
-            for (int i = 0; i < this.GameBoardSize; i++)
+            for (int i = 0; i < this.Size; i++)
             {
-                for (int j = 0; j < this.GameBoardSize; j++)
+                for (int j = 0; j < this.Size; j++)
                 {
                     if (this.Board[i, j] != counter.ToString())
                     {
@@ -238,9 +240,9 @@
 
                 StringBuilder output = new StringBuilder();
                 output.AppendLine("  - - - - - -");
-                for (int row = 0; row < this.GameBoardSize; row++)
+                for (int row = 0; row < this.Size; row++)
                 {
-                    for (int column = 0; column < this.GameBoardSize; column++)
+                    for (int column = 0; column < this.Size; column++)
                     {
                         switch (column)
                         {
