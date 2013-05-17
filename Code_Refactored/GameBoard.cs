@@ -134,6 +134,7 @@
         /// <summary>
         /// Checks does current state of game board is solvable.
         /// </summary>
+        /// <param name="gameBoard">The game board.</param>
         /// <returns>True if solvable, false if not.</returns>
         public bool IsSolvable(string[,] gameBoard)
         {
@@ -300,6 +301,7 @@
 
         /// <summary>
         /// Fills out the game board with randomly generated numbers and positions.
+        /// <param name="gameField">The game field to be filled out.</param>
         /// </summary>
         private void FillOut(string[,] gameField)
         {
