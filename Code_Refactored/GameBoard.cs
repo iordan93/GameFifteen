@@ -29,12 +29,14 @@
             {
                 return this.board;
             }
+
             set
             {
                 if (value == null)
                 {
-                    throw new ArgumentException("Game board can not be assigned to null!.");
+                    throw new ArgumentNullException("board", "Game board can not be assigned to null!.");
                 }
+
                 this.board = value;
             }
         }
@@ -48,6 +50,7 @@
                 {
                     throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
+
                 return this.Board[indexRow, indexColumn];
             }
 
@@ -58,12 +61,13 @@
                 {
                     throw new ArgumentOutOfRangeException("Indexes can not be smeller than 0 and greater than current size of the board.");
                 }
+
                 this.Board[indexRow, indexColumn] = value;
             }
         }
 
         /// <summary>
-        /// Gets or sets the size of the game board.
+        /// Gets the size of the game board.
         /// </summary>
         /// <value>The size of the game board.</value>
         public int Size
@@ -72,13 +76,14 @@
             {
                 return this.size;
             }
+
             private set
             {
                 this.size = value;
             }
         }
-
-        public void GenerateField()
+        
+        public void Generate()
         {
             do
             {
@@ -94,28 +99,26 @@
             while (!this.IsSolvable(this.Board));
         }
 
-
         // TODO: Place a comment about this method with reference!
         // http://www.cs.bham.ac.uk/~mdr/teaching/modules04/java2/TilesSolvability.html
-
-        public bool IsSolvable(string[,] gameField)
+        public bool IsSolvable(string[,] gameBoard)
         {
-            int[] numbersInOneRow = new int[gameField.Length];
+            int[] numbersInOneRow = new int[gameBoard.Length];
             int index = 0;
             Position blankPosition = null;
 
-            for (int i = 0; i < gameField.GetLength(0); i++)
+            for (int i = 0; i < gameBoard.GetLength(0); i++)
             {
-                for (int j = 0; j < gameField.GetLength(1); j++)
+                for (int j = 0; j < gameBoard.GetLength(1); j++)
                 {
-                    if (gameField[i, j] == " ")
+                    if (gameBoard[i, j] == " ")
                     {
                         numbersInOneRow[index] = 0;
                         blankPosition = new Position(i, j);
                     }
                     else
                     {
-                        numbersInOneRow[index] = int.Parse(gameField[i, j]);
+                        numbersInOneRow[index] = int.Parse(gameBoard[i, j]);
                     }
 
                     index++;
@@ -140,18 +143,17 @@
                 }
             }
 
-            bool isFieldWidthEven = gameField.GetLength(1) % 2 == 0;
+            bool isFieldWidthEven = gameBoard.GetLength(1) % 2 == 0;
             bool isNumberOfInversionsEven = numberOfInversions % 2 == 0;
             bool isBlankOnOddRowFromBottom =
-                (gameField.GetLength(0) - 1 - blankPosition.Row) % 2 == 0;
+                (gameBoard.GetLength(0) - 1 - blankPosition.Row) % 2 == 0;
 
             bool isSolvable = ((!isFieldWidthEven) && isNumberOfInversionsEven) ||
                 (isFieldWidthEven && (isBlankOnOddRowFromBottom == isNumberOfInversionsEven));
 
             return isSolvable;
         }
-
-
+        
         private void FillOut(string[,] gameField)
         {
             Random generator = new Random();
@@ -236,8 +238,6 @@
         {
             if (this.Board != null)
             {
-
-
                 StringBuilder output = new StringBuilder();
                 output.AppendLine("  - - - - - -");
                 for (int row = 0; row < this.Size; row++)
@@ -265,6 +265,5 @@
 
             return null;
         }
-
     }
 }

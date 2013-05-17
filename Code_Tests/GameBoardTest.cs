@@ -1,12 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using GameFifteen;
-
-namespace GameFifteen.Test
+﻿namespace GameFifteen.Test
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class GameBoardTest
     {
+        // TODO: Format matrices properly
+
         /// <summary>
         ///A test for IsSolvable - WithUnsolvableField 1 test.
         ///</summary>
@@ -15,10 +16,14 @@ namespace GameFifteen.Test
         {
             int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
-            string[,] gameField = {{ "1", "2", "3", "4" },
-                                            { "5", "6", "7", "8" },
-                                            { "9", "10", "11", "12" },
-                                            { "13", "15", "14", " " }}; ;
+            string[,] gameField = 
+            {
+                { "1", "2", "3", "4" },
+                { "5", "6", "7", "8" },
+                { "9", "10", "11", "12" },
+                { "13", "15", "14", " " }
+            };
+
             bool actual = target.IsSolvable(gameField);
             Assert.IsFalse(actual);
         }
@@ -31,10 +36,14 @@ namespace GameFifteen.Test
         {
             int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
-            string[,] gameField = { { "13", "10", "11", "6" },
-                                            { "5", "7", "4", "8" },
-                                            { "1", "12", "14", "9" },
-                                            { "3", "15", "2", " " } };
+            string[,] gameField = 
+            {
+                { "13", "10", "11", "6" },
+                { "5", "7", "4", "8" },
+                { "1", "12", "14", "9" },
+                { "3", "15", "2", " " } 
+            };
+            
             bool actual = target.IsSolvable(gameField);
             Assert.IsFalse(actual);
         }
@@ -63,10 +72,14 @@ namespace GameFifteen.Test
         {
             int gameBoardSize = 4;
             GameBoard target = new GameBoard(gameBoardSize);
-            string[,] gameField =  { { " ", "12", "9", "13" },
-                                          { "15", "11", "10", "14" },
-                                          { "3", "7", "2", "5" },
-                                          { "4", "8", "6", "1" } };
+            string[,] gameField =  
+            {
+                { " ", "12", "9", "13" },
+                { "15", "11", "10", "14" },
+                { "3", "7", "2", "5" },
+                { "4", "8", "6", "1" } 
+            };
+            
             bool actual = target.IsSolvable(gameField);
             Assert.IsTrue(actual);
         }
@@ -386,14 +399,13 @@ namespace GameFifteen.Test
             actual = target.ToString();
             Assert.AreEqual(expected, actual);
             Assert.Inconclusive("Verify the correctness of this test method.");
-
        }
 
         /// <summary>
         ///A test for Board
         ///</summary>
         [TestMethod()]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void BoardTest()
         {
             int gameBoardSize = 4;
@@ -489,7 +501,6 @@ namespace GameFifteen.Test
             int indexRow = 2;
             int indexColumn = 33;
             string value = target[indexRow, indexColumn];
-
         }
 
         /// <summary>
@@ -504,7 +515,6 @@ namespace GameFifteen.Test
             int indexRow = 23;
             int indexColumn = 3;
             string value = target[indexRow, indexColumn];
-
         }
     }
 }
