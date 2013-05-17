@@ -2,6 +2,7 @@
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Linq;
 
     [TestClass]
     public class GameBoardTest
@@ -453,26 +454,6 @@
         }
 
         /// <summary>
-        /// A test for valid ToString().
-        /// </summary>
-        [TestMethod]
-        public void ToStringTest()
-        {
-            string[,] gameField =
-            {
-                { "1", "2", "3", "4" },
-                { "5", "6", "7", "8" },
-                { "9", "10", "11", "12" },
-                { "13", "14", "15", " " } 
-            };
-            GameBoard target = new GameBoard(gameField);
-
-            string expected = "- - - - - -\n|  1  2  3  4 |\n|  5  6  7  8 |\n|  9 10 11 12 |\n| 13 14 15    |\n  - - - - - -\n";
-
-            Assert.AreEqual(expected, target.ToString());
-        }
-
-        /// <summary>
         /// A test for non-square entered board.
         /// </summary>
         [TestMethod]
@@ -490,7 +471,7 @@
         }
 
         /// <summary>
-        /// A test for Board.
+        /// A test for Board - null test.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
