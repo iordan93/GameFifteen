@@ -4,33 +4,7 @@
 
     public class GameFifteen
     {
-        private static string GetUpdatedBoard(GameBoard gameBoard, Position oldPosition, Position newPosition, string input)
-        {
-            // TODO: Spaghetti :P
-            gameBoard[oldPosition.Row, oldPosition.Column] = input;
-            gameBoard[newPosition.Row, newPosition.Column] = " ";
-            return gameBoard.ToString();
-        }
-
-        private static Position FindCurrentElement(GameBoard board, string input)
-        {
-            for (int row = 0; row < board.Size; row++)
-            {
-                for (int col = 0; col < board.Size; col++)
-                {
-                    if (board[row, col] == input)
-                    {
-                        return new Position(row, col);
-                    }
-                }
-            }
-
-            // TODO: Add correct behaviour (YD)
-            Console.WriteLine("Cheat ! Illegal command ! !");
-            return null;
-        }
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // TODO: Manage all output and change to something which makes sense (YD)
 
@@ -178,6 +152,31 @@
             }
 
             // TODO: A new game doesn't start automatically!
+        }
+
+        private static string GetUpdatedBoard(GameBoard gameBoard, Position oldPosition, Position newPosition, string input)
+        {
+            gameBoard[oldPosition.Row, oldPosition.Column] = input;
+            gameBoard[newPosition.Row, newPosition.Column] = " ";
+            return gameBoard.ToString();
+        }
+
+        private static Position FindCurrentElement(GameBoard board, string input)
+        {
+            for (int row = 0; row < board.Size; row++)
+            {
+                for (int col = 0; col < board.Size; col++)
+                {
+                    if (board[row, col] == input)
+                    {
+                        return new Position(row, col);
+                    }
+                }
+            }
+
+            // TODO: Add correct behaviour (YD)
+            Console.WriteLine("Cheat ! Illegal command ! !");
+            return null;
         }
     }
 }

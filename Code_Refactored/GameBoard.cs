@@ -41,6 +41,23 @@
             }
         }
 
+        /// <summary>
+        /// Gets the size of the game board.
+        /// </summary>
+        /// <value>The size of the game board.</value>
+        public int Size
+        {
+            get
+            {
+                return this.size;
+            }
+
+            private set
+            {
+                this.size = value;
+            }
+        }
+
         public string this[int indexRow, int indexColumn]
         {
             get
@@ -66,23 +83,6 @@
             }
         }
 
-        /// <summary>
-        /// Gets the size of the game board.
-        /// </summary>
-        /// <value>The size of the game board.</value>
-        public int Size
-        {
-            get
-            {
-                return this.size;
-            }
-
-            private set
-            {
-                this.size = value;
-            }
-        }
-        
         public void Generate()
         {
             do
@@ -153,60 +153,6 @@
 
             return isSolvable;
         }
-        
-        private void FillOut(string[,] gameField)
-        {
-            Random generator = new Random();
-            List<int> usedNumbers = new List<int>();
-            bool isPositionFilled = false;
-
-            this.Board[generator.Next(this.Size), generator.Next(this.Size)] = " ";
-
-            for (int i = 0; i < this.Size; i++)
-            {
-                for (int j = 0; j < this.Size; j++)
-                {
-                    isPositionFilled = false;
-
-                    do
-                    {
-                        int number = generator.Next(1, this.Size * this.Size);
-
-                        if (gameField[i, j] == " ")
-                        {
-                            isPositionFilled = true;
-                        }
-                        else
-                        {
-                            if (!usedNumbers.Contains(number))
-                            {
-                                gameField[i, j] = number.ToString();
-                                isPositionFilled = true;
-                                usedNumbers.Add(number);
-                            }
-                        }
-                    }
-                    while (!isPositionFilled);
-                }
-            }
-        }
-
-        internal Position FindEmptyCell()
-        {
-            Position result = null;
-            for (int i = 0; i < this.Size; i++)
-            {
-                for (int j = 0; j < this.Size; j++)
-                {
-                    if (this.Board[i, j] == " ")
-                    {
-                        result = new Position(i, j);
-                    }
-                }
-            }
-
-            return result;
-        }
 
         public bool IsSolved()
         {
@@ -264,6 +210,60 @@
             }
 
             return null;
+        }
+
+        private Position FindEmptyCell()
+        {
+            Position result = null;
+            for (int i = 0; i < this.Size; i++)
+            {
+                for (int j = 0; j < this.Size; j++)
+                {
+                    if (this.Board[i, j] == " ")
+                    {
+                        result = new Position(i, j);
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        private void FillOut(string[,] gameField)
+        {
+            Random generator = new Random();
+            List<int> usedNumbers = new List<int>();
+            bool isPositionFilled = false;
+
+            this.Board[generator.Next(this.Size), generator.Next(this.Size)] = " ";
+
+            for (int i = 0; i < this.Size; i++)
+            {
+                for (int j = 0; j < this.Size; j++)
+                {
+                    isPositionFilled = false;
+
+                    do
+                    {
+                        int number = generator.Next(1, this.Size * this.Size);
+
+                        if (gameField[i, j] == " ")
+                        {
+                            isPositionFilled = true;
+                        }
+                        else
+                        {
+                            if (!usedNumbers.Contains(number))
+                            {
+                                gameField[i, j] = number.ToString();
+                                isPositionFilled = true;
+                                usedNumbers.Add(number);
+                            }
+                        }
+                    }
+                    while (!isPositionFilled);
+                }
+            }
         }
     }
 }

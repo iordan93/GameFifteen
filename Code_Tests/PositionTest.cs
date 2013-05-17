@@ -1,22 +1,21 @@
-﻿using GameFifteen;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-
-namespace GameFifteen.Test
+﻿namespace GameFifteen.Test
 {
+    using System;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     //TODO: must replace pattern with real unit tests!!!!
     
     /// <summary>
     ///This is a test class for PositionTest and is intended
     ///to contain all PositionTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class PositionTest
     {
         /// <summary>
         ///A test for Position Constructor
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void PositionConstructorTest()
         {
             int row = 0; // TODO: Initialize to an appropriate value
@@ -28,7 +27,7 @@ namespace GameFifteen.Test
         /// <summary>
         ///A test for Column
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void ColumnTest()
         {
             int row = 0; // TODO: Initialize to an appropriate value
@@ -45,7 +44,7 @@ namespace GameFifteen.Test
         /// <summary>
         ///A test for Row
         ///</summary>
-        [TestMethod()]
+        [TestMethod]
         public void RowTest()
         {
             int row = 0; // TODO: Initialize to an appropriate value
