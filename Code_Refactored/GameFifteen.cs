@@ -51,7 +51,7 @@
                     // TODO: Draw if records are presented. Extract method. In class.
                     for (int i = 0; i < 5; i++)
                     {
-                        Console.WriteLine("Name : {0} , moves : {1} ", Highscores.players[i], Highscores.moves[i]);
+                        // Console.WriteLine("Name : {0} , moves : {1} ", Highscores.players[i], Highscores.moves[i]);
                     }
 
                     continue;
@@ -138,18 +138,18 @@
             Console.WriteLine("Your result is {0} moves !", moves);
 
             // TODO: Extract method. In class. Fix bug! (moves = 0)
-            for (int i = 0; i < 5; i++)
-            {
-                if (Highscores.moves[i] > moves)
-                {
-                    Console.WriteLine("Congratulations, you have just put a new record");
-                    Console.Write("Please enter your name : ");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    if (Highscores.moves[i] > moves)
+            //    {
+            //        Console.WriteLine("Congratulations, you have just put a new record");
+            //        Console.Write("Please enter your name : ");
 
-                    Highscores.moves[i] = moves;
+            //        Highscores.moves[i] = moves;
 
-                    Highscores.players[i] = Console.ReadLine();
-                }
-            }
+            //        Highscores.players[i] = Console.ReadLine();
+            //    }
+            //}
 
             // TODO: A new game doesn't start automatically!
         }
