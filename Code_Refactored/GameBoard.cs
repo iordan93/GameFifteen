@@ -81,6 +81,12 @@
             }
         }
 
+        /// <summary>
+        /// Game board indexer for accessing each cell on it.
+        /// </summary>
+        /// <param name="indexRow">Row index.</param>
+        /// <param name="indexColumn">Column index.</param>
+        /// <returns>Value in the requested position.</returns>
         public string this[int indexRow, int indexColumn]
         {
             get
@@ -106,6 +112,9 @@
             }
         }
 
+        /// <summary>
+        /// Generates initial state of the game board.
+        /// </summary>
         public void GenerateBoard()
         {
             do
@@ -122,6 +131,10 @@
             while (!this.IsSolvable(this.Board));
         }
 
+        /// <summary>
+        /// Checks does current state of game board is solvable.
+        /// </summary>
+        /// <returns>True if solvable, false if not.</returns>
         public bool IsSolvable(string[,] gameBoard)
         {
             int[] numbersInOneRow = new int[gameBoard.Length];
@@ -175,6 +188,10 @@
             return isSolvable;
         }
 
+        /// <summary>
+        /// Checks does the game has been solved by traversing all positions on game board.
+        /// </summary>
+        /// <returns>True if solved, else if not.</returns>
         public bool IsSolved()
         {
             int counter = 1;
@@ -201,6 +218,10 @@
             return true;
         }
 
+        /// <summary>
+        /// Renders the current state of game board.
+        /// </summary>
+        /// <returns>String containing representation of the current game board.</returns>
         public override string ToString()
         {
             if (this.Board != null)
@@ -256,6 +277,10 @@
             throw new ArgumentException(string.Format("The element {0} does not exist in the game board.", input));
         }
 
+        /// <summary>
+        /// Finds current empty cell.
+        /// </summary>
+        /// <returns>Coordinates in <see cref="Position"/> format.</returns>
         private Position FindEmptyCell()
         {
             Position result = null;
@@ -273,6 +298,9 @@
             return result;
         }
 
+        /// <summary>
+        /// Fills out the game board with randomly generated numbers and positions.
+        /// </summary>
         private void FillOut(string[,] gameField)
         {
             Random generator = new Random();
