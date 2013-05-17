@@ -1,7 +1,7 @@
-﻿namespace GameFifteen
-{
-    using System;
+﻿using System;
 
+namespace GameFifteen
+{
     /// <summary>
     /// A class representing position on board.
     /// </summary>
@@ -64,5 +64,8 @@
                 this.row = value;
             }
         }
+
+        // An interesting idea: To implement CompareTo() function that shows whether the first
+        // Position object is on left, on top, on right, on bottom of the second Position object.
     }
 }
