@@ -1,9 +1,9 @@
+using System;
+using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 namespace GameFifteen.Test
 {
-    using System;
-    using System.Text;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
     [TestClass]
     public class HighscoresTest
     {
@@ -12,7 +12,7 @@ namespace GameFifteen.Test
         [TestMethod]
         public void TestEmptyHighscores()
         {
-            string assertedResult = "There are no highscores!";
+            string assertedResult = "There are no highscores!\n";
             string result = highscores.ToString();
 
             Assert.AreEqual(assertedResult, result);

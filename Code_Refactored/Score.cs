@@ -1,7 +1,7 @@
-﻿namespace GameFifteen
-{
-    using System;
+﻿using System;
 
+namespace GameFifteen
+{
     /// <summary>
     /// A class containing information about the number of moves and the nickname/name of player who scored.
     /// </summary>    

@@ -1,7 +1,7 @@
-﻿namespace GameFifteen
-{
-    using System;
+﻿using System;
 
+namespace GameFifteen
+{
     /// <summary>
     /// The main class to play game.
     /// </summary>

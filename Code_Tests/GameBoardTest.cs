@@ -1,9 +1,9 @@
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+
 namespace GameFifteen.Test
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Linq;
-
     [TestClass]
     public class GameBoardTest
     {

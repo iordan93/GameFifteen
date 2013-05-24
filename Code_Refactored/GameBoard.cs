@@ -1,9 +1,9 @@
-﻿namespace GameFifteen
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
+namespace GameFifteen
+{
     /// <summary>
     /// The board for the game "Fifteen".
     /// </summary>
@@ -132,7 +132,7 @@
         }
 
         /// <summary>
-        /// Checks does current state of game board is solvable.
+        /// Checks whether current state of game board is solvable.
         /// </summary>
         /// <param name="gameBoard">The game board.</param>
         /// <returns>True if solvable, false if not.</returns>
@@ -190,7 +190,7 @@
         }
 
         /// <summary>
-        /// Checks does the game has been solved by traversing all positions on game board.
+        /// Checks whether the game has been solved by traversing all positions on game board.
         /// </summary>
         /// <returns>True if solved, else if not.</returns>
         public bool IsSolved()
@@ -231,21 +231,16 @@
                 output.AppendLine("  - - - - - -");
                 for (int row = 0; row < this.Size; row++)
                 {
+                    // The left "border"
+                    output.Append("| ");
+
                     for (int column = 0; column < this.Size; column++)
                     {
-                        switch (column)
-                        {
-                            case 0:
-                                output.AppendFormat("| {0,2} ", this.Board[row, column]);
-                                break;
-                            case 3:
-                                output.AppendFormat("{0,2} |\n", this.Board[row, column]);
-                                break;
-                            default:
-                                output.AppendFormat("{0,2} ", this.Board[row, column]);
-                                break;
-                        }
+                        output.AppendFormat("{0,2} ", this.Board[row, column]);
                     }
+
+                    // The right "border"
+                    output.Append("|\n");
                 }
 
                 output.AppendLine("  - - - - - -");
@@ -255,11 +250,10 @@
             return null;
         }
 
-        internal string GetUpdatedBoard(Position oldPosition, Position newPosition, string input)
+        internal void UpdateBoard(Position oldPosition, Position newPosition, string input)
         {
             this[oldPosition.Row, oldPosition.Column] = input;
             this[newPosition.Row, newPosition.Column] = " ";
-            return this.ToString();
         }
 
         internal Position FindCurrentElement(string input)

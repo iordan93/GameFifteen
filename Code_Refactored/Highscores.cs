@@ -1,9 +1,9 @@
-﻿namespace GameFifteen
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
+namespace GameFifteen
+{
     public class Highscores
     {
         public const int Size = 5;
@@ -67,7 +67,7 @@
         {
             if (this.Scores.Count == 0)
             {
-                return "There are no highscores!";
+                return "There are no highscores!\n";
             }
 
             StringBuilder result = new StringBuilder();

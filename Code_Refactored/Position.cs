@@ -1,7 +1,7 @@
-﻿namespace GameFifteen
-{
-    using System;
+﻿using System;
 
+namespace GameFifteen
+{
     /// <summary>
     /// A class representing position on board.
     /// </summary>
